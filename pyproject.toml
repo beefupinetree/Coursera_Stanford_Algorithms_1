@@ -1,0 +1,10 @@
+[project]
+name = "coursera_algorithms_1"
+version = "0.1.0"
+description = "First course in the OSSU Algorithms section"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["pytest>=3.12.7"]
+
+[tool.pytest.ini_options]
+pythonpath = "src"
