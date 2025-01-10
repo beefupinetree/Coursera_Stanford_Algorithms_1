@@ -15,7 +15,6 @@ def inversions(arr: list[int]):
     q = arr[mid:]
     b, inversions_q = inversions(q)
     print(f"a is {a}, b is {b}")
-    # a and b are sorted arrays at this point
     c, cross_inversions = _count_cross_inversions(a, b)
 
     num_inversions = inversion_p + inversions_q + cross_inversions
@@ -23,6 +22,7 @@ def inversions(arr: list[int]):
 
 
 def _count_cross_inversions(p: list[int], q: list[int]):
+    # and sort
     r = []
     print(f"p is {p}, q is {q}")
     i = 0
