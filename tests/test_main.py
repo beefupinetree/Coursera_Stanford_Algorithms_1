@@ -2,11 +2,12 @@ import pytest
 from pathlib import Path
 from assignment_1.karatsuba import karatsuba
 from assignment_2.count_inversions import inversions
+from assignment_3.Quicksort import quicksort
 
 
-@pytest.fixture
-def read_file() -> list[int]:
-    file = Path("src/assignment_2/IntegerArray.txt")  # tests/IntegerArray.txt
+# @pytest.fixture
+def read_file(file_path: str) -> list[int]:
+    file = Path(file_path)  # "src/assignment_2/IntegerArray.txt"
     return open(file).readlines()
 
 
@@ -35,5 +36,11 @@ def test_inversions(in_array: list, expected: int) -> None:
     assert inversions(in_array)[1] == expected
 
 
-def test_inversions_with_file(read_file: list) -> None:
-    assert inversions(read_file)[1] == 2397819672
+def test_inversions_with_file() -> None:
+    input_file = "src/assignment_2/IntegerArray.txt"
+    assert inversions(read_file(input_file))[1] == 2397819672
+
+
+def test_quicksort_with_file() -> None:
+    input_file = "src/assignment_3/QuickSort.txt"
+    assert quicksort(read_file(input_file)) == 153461
