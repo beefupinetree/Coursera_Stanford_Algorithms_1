@@ -43,4 +43,5 @@ def test_inversions_with_file() -> None:
 
 def test_quicksort_with_file() -> None:
     input_file = "src/assignment_3/QuickSort.txt"
-    assert quicksort(read_file(input_file)) == 153461
+    assert quicksort(read_file(input_file))[1] == 153461
+    assert quicksort([3, 8, 2, 5, 1, 4, 7, 6])[1] == 15

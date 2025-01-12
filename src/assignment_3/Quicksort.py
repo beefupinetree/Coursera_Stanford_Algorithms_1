@@ -11,7 +11,7 @@ def partition(sub_array: list[int], pivot_index: int) -> list[int]:
     # move the pivot element to it's rightful place
     swap(sub_array, 0, i - 1)
 
-    return sub_array[: i - 1], sub_array[i:]
+    return sub_array, i - 1  # sub_array[: i - 1], sub_array[i:]
 
 
 def swap(array: list[int], first_index: int, second_index: int) -> list[int]:
@@ -19,16 +19,16 @@ def swap(array: list[int], first_index: int, second_index: int) -> list[int]:
     return array
 
 
-def quicksort(array: list[int]) -> list[int]:  # ,count: int
+def quicksort(array: list[int]) -> tuple[list[int], int]:  # ,count: int
     n = len(array)
     if n > 1:
-        pivot_index = 0  # random.randint(0, n)
-        left, right = partition(array, pivot_index)
-        ops_left = quicksort(left)
-        ops_right = quicksort(right)
-        return ops_left + ops_right + n - 1
+        pi = 0  # Pivot Index
+        array, pi = partition(array, pi)
+        array[:pi], ops_left = quicksort(array[:pi])
+        array[pi + 1 :], ops_right = quicksort(array[pi + 1 :])
+        return array, ops_left + ops_right + n - 1
     else:
-        return 0
+        return array, 0
 
 
 if __name__ == "__main__":
