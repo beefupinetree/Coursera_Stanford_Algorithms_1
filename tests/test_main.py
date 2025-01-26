@@ -3,6 +3,7 @@ from pathlib import Path
 from assignment_1.karatsuba import karatsuba
 from assignment_2.count_inversions import inversions
 from assignment_3.Quicksort import quicksort
+from assignment_4.minimum_cut import KargerMinCut
 
 
 # @pytest.fixture
@@ -45,3 +46,8 @@ def test_quicksort_with_file() -> None:
     input_file = "src/assignment_3/QuickSort.txt"
     assert quicksort(read_file(input_file))[1] == 153461
     assert quicksort([3, 8, 2, 5, 1, 4, 7, 6])[1] == 15
+
+
+def test_min_cut_with_file() -> None:
+    input_file = "src/assignment_4/kargerMinCut.txt"
+    assert KargerMinCut(read_file(input_file))[1] == 153461

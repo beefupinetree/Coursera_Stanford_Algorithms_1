@@ -1,0 +1,2 @@
+def KargerMinCut(data):
+    pass
